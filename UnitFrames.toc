@@ -1,0 +1,14 @@
+## Interface: 11200
+## Title: |cffff9e38UnitFrames|r |cffffd6a8[Fostercare5988]|r
+## Notes: Blizzard's player and target frames: class colours, exact numbers, auras, cast bars, energy ticks
+## Author: Fostercare5988
+## Version: 1.1.0
+## SavedVariablesPerCharacter: UnitFramesDB
+## LoadSavedVariablesFirst: 1
+Core.lua
+Unit.lua
+Cast.lua
+Energy.lua
+Auras.lua
+TopRight.lua
+Page.lua
