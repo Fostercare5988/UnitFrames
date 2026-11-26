@@ -8,8 +8,8 @@ UnitFramesDB = UnitFramesDB or {} -- restored first: LoadSavedVariablesFirst
 local db = UnitFramesDB
 
 -- The page (Page.lua), in play order: a string is a section header, a row is
--- { key, label, tip }. Every switch is on by default; the frames start before the
--- Settings window registers the page, so the defaults are written here too.
+-- { key, label, tip, default }. A switch is on unless its row says false; the frames
+-- start before the Settings window registers the page, so the defaults are written here too.
 F.PAGE = {
     "Frames",
     { "classColors", "Class colours", "Your, your target's and your party's class colour behind their names." },
@@ -23,7 +23,7 @@ F.PAGE = {
     "Top right",
     { "topBuffs", "Buffs", "The game's buff icons at the top right." },
     { "topDebuffs", "Debuffs", "The game's debuff icons at the top right." },
-    { "topFromLeft", "Fill from the left", "The top-right buffs and debuffs start at the left and fill to the right. Off: they start at the right." },
+    { "topFromLeft", "Fill from the left", "The top-right buffs and debuffs start at the left and fill to the right. Off: they start at the right.", false },
     { "enchants", "Weapon enchants", "Poisons, oils and stones on your weapons, main hand left." },
     "Borders",
     { "buffBorders", "Buff borders", "A thin dark border round every buff icon." },
@@ -31,7 +31,7 @@ F.PAGE = {
     { "enchantBorders", "Weapon enchant borders", "A border in the weapon's quality colour." },
 }
 for _, row in ipairs(F.PAGE) do
-    if type(row) == "table" and db[row[1]] == nil then db[row[1]] = true end
+    if type(row) == "table" and db[row[1]] == nil then db[row[1]] = row[4] ~= false end
 end
 
 -- The Auras addon shows some auras on icons of their own; the rows and the top

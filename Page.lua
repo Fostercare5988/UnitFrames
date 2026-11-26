@@ -11,8 +11,9 @@ SettingsRegistrar:AddRegistrant(function()
             layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(row))
         else
             local key, name, tip = row[1], row[2], row[3]
+            local default = row[4] ~= false
             local setting = Settings.RegisterAddOnSetting(category, "UnitFrames_" .. key, key, db,
-                Settings.VarType.Boolean, name, true)
+                Settings.VarType.Boolean, name, default)
             setting:SetValueChangedCallback(F.apply[key])
             Settings.CreateCheckbox(category, setting, tip)
         end
