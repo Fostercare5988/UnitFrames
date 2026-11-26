@@ -78,7 +78,7 @@ local function Countdown(b, left)
     Live(b, hovered or left <= BUFF_WARNING_TIME)
 end
 
--- Shown buttons right to left, eight to a line, closing up round hidden ones;
+-- Shown buttons left to right, eight to a line, closing up round hidden ones;
 -- once a frame after they change. The enchants are placed by Weapons: only they
 -- swap (BuffFrame_Enchant_OnUpdate gives TempEnchant1 the off hand when it has one).
 local pending
@@ -89,7 +89,7 @@ local function Layout()
         for _, b in ipairs(area.buttons) do
             if b:IsShown() then
                 b:ClearAllPoints()
-                b:SetPoint("TOPRIGHT", area, "TOPRIGHT", -(n % 8) * 35, -math.floor(n / 8) * 35)
+                b:SetPoint("TOPLEFT", area, "TOPLEFT", (n % 8) * 35, -math.floor(n / 8) * 35)
                 n = n + 1
             end
         end
