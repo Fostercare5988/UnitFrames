@@ -15,8 +15,8 @@ Blizzard's player, target and pet frames, made better for World of Warcraft
 - **Buffs and debuffs** under the player and target frames, with sweeps,
   countdowns and dispel colours.
 - **The top-right buffs, debuffs and weapon enchants**, each area moved with
-  Ctrl+Shift; the poison on each weapon, main hand left; the time left counts
-  down on the icon.
+  Ctrl+Shift; the buffs and debuffs fill from the left or the right (a switch);
+  the poison on each weapon, main hand left; the time left counts down on the icon.
 - **Borders** on buffs, debuffs and weapon enchants.
 
 Every feature has a switch on its page in AddOn Options; `/ffr` opens it.

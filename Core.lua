@@ -23,6 +23,7 @@ F.PAGE = {
     "Top right",
     { "topBuffs", "Buffs", "The game's buff icons at the top right." },
     { "topDebuffs", "Debuffs", "The game's debuff icons at the top right." },
+    { "topFromLeft", "Fill from the left", "The top-right buffs and debuffs start at the left and fill to the right. Off: they start at the right." },
     { "enchants", "Weapon enchants", "Poisons, oils and stones on your weapons, main hand left." },
     "Borders",
     { "buffBorders", "Buff borders", "A thin dark border round every buff icon." },

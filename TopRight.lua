@@ -78,8 +78,8 @@ local function Countdown(b, left)
     Live(b, hovered or left <= BUFF_WARNING_TIME)
 end
 
--- Shown buttons left to right, eight to a line, closing up round hidden ones;
--- once a frame after they change. The enchants are placed by Weapons: only they
+-- Shown buttons, eight to a line, closing up round hidden ones: from the left
+-- (the switch on) or from the right; once a frame after they change. The enchants are placed by Weapons: only they
 -- swap (BuffFrame_Enchant_OnUpdate gives TempEnchant1 the off hand when it has one).
 local pending
 local function Layout()
@@ -89,7 +89,9 @@ local function Layout()
         for _, b in ipairs(area.buttons) do
             if b:IsShown() then
                 b:ClearAllPoints()
-                b:SetPoint("TOPLEFT", area, "TOPLEFT", (n % 8) * 35, -math.floor(n / 8) * 35)
+                local row = -math.floor(n / 8) * 35
+                if db.topFromLeft then b:SetPoint("TOPLEFT", area, "TOPLEFT", (n % 8) * 35, row)
+                else b:SetPoint("TOPRIGHT", area, "TOPRIGHT", -(n % 8) * 35, row) end
                 n = n + 1
             end
         end
@@ -233,6 +235,7 @@ function F.TopRight()
 end
 F.apply.topBuffs, F.apply.topDebuffs, F.apply.enchants, F.apply.enchantBorders =
     F.TopRight, F.TopRight, F.TopRight, F.TopRight
+F.apply.topFromLeft = LayoutSoon
 
 local i = 0
 while _G["BuffButton" .. i] do
